@@ -29,4 +29,7 @@ public class Application {
 }
 ```
 
+Add `dependencyReport.gradle` to the build.gradle file:  
+https://github.com/FINTlibs/fint-buildscripts#dependencyreportgradle
+
 Send a GET request to `/fint-dependencies`
