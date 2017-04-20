@@ -1,0 +1,150 @@
+{
+    "current": {
+        "dependencies": [
+            {
+                "group": "cglib",
+                "version": "3.2.5",
+                "name": "cglib-nodep"
+            },
+            {
+                "group": "org.kt3k.gradle.plugin",
+                "version": "2.8.1",
+                "name": "coveralls-gradle-plugin"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.12",
+                "name": "fint-audit-mongo-plugin"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.3",
+                "name": "fint-cache"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.2",
+                "name": "fint-dependencies"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.12",
+                "name": "fint-event-model"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.25",
+                "name": "fint-events"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.22",
+                "name": "fint-relation-model"
+            },
+            {
+                "group": "no.fint",
+                "version": "0.0.19",
+                "name": "fint-relations"
+            },
+            {
+                "group": "com.github.fakemongo",
+                "version": "2.0.13",
+                "name": "fongo"
+            },
+            {
+                "group": "com.github.ben-manes",
+                "version": "0.14.0",
+                "name": "gradle-versions-plugin"
+            },
+            {
+                "group": "com.github.spock.spring.utils",
+                "version": "0.0.2",
+                "name": "spock-spring-utils"
+            },
+            {
+                "group": "org.springframework.boot",
+                "version": "1.5.2.RELEASE",
+                "name": "spring-boot-devtools"
+            },
+            {
+                "group": "org.springframework.boot",
+                "version": "1.5.2.RELEASE",
+                "name": "spring-boot-gradle-plugin"
+            },
+            {
+                "group": "org.springframework.boot",
+                "version": "1.5.2.RELEASE",
+                "name": "spring-boot-starter-test"
+            },
+            {
+                "group": "org.springframework.boot",
+                "version": "1.5.2.RELEASE",
+                "name": "spring-boot-starter-web"
+            },
+            {
+                "group": "com.github.springfox.loader",
+                "version": "1.0.0",
+                "name": "springfox-loader"
+            }
+        ],
+        "count": 17
+    },
+    "exceeded": {
+        "dependencies": [
+            
+        ],
+        "count": 0
+    },
+    "outdated": {
+        "dependencies": [
+            {
+                "group": "no.fint",
+                "available": {
+                    "release": null,
+                    "milestone": "1.0.1-rc.2",
+                    "integration": null
+                },
+                "version": "1.0.1-rc.1",
+                "name": "fint-administrasjon-model-java"
+            },
+            {
+                "group": "org.projectlombok",
+                "available": {
+                    "release": null,
+                    "milestone": "1.16.16",
+                    "integration": null
+                },
+                "version": "1.16.14",
+                "name": "lombok"
+            },
+            {
+                "group": "org.spockframework",
+                "available": {
+                    "release": null,
+                    "milestone": "1.1-groovy-2.4-rc-4",
+                    "integration": null
+                },
+                "version": "1.0-groovy-2.4",
+                "name": "spock-spring"
+            },
+            {
+                "group": "org.springframework.cloud",
+                "available": {
+                    "release": null,
+                    "milestone": "1.3.0.RELEASE",
+                    "integration": null
+                },
+                "version": "1.2.2.RELEASE",
+                "name": "spring-cloud-starter-config"
+            }
+        ],
+        "count": 4
+    },
+    "unresolved": {
+        "dependencies": [
+            
+        ],
+        "count": 0
+    },
+    "count": 21
+}

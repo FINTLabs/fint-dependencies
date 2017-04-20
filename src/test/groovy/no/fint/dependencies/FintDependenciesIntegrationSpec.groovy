@@ -18,18 +18,18 @@ class FintDependenciesIntegrationSpec extends Specification {
 
     def "Verify FintDependencies config"() {
         when:
-        def dependencies = fintDependencies.get()
+        def dependencies = fintDependencies.getAll()
 
         then:
-        dependencies.size() == 4
+        dependencies.size() == 17
     }
 
     def "Verify FintDependenciesController config"() {
         when:
-        def dependencies = fintDependenciesController.getDependencies()
+        def dependencies = fintDependenciesController.getAll()
 
         then:
-        dependencies.size() == 4
+        dependencies.size() == 17
     }
 
 }

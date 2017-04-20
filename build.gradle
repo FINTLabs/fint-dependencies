@@ -14,7 +14,6 @@ jar {
 }
 
 sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenLocal()
@@ -22,15 +21,22 @@ repositories {
     maven {
         url 'http://dl.bintray.com/fint/maven'
     }
+    maven {
+        url 'http://dl.bintray.com/jarlehansen/maven'
+    }
 }
 
-apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.3/dependencies.gradle'
+apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.7/dependencies.gradle'
 dependencies {
+    compile('com.google.guava:guava:21.0')
+    compile('commons-io:commons-io:2.5')
+    compile('com.jayway.jsonpath:json-path:2.2.0')
     compile("org.springframework.boot:spring-boot-starter:${springBootVersion}")
     compile("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
     compileOnly("org.projectlombok:lombok:${lombokVersion}")
 
-    testCompile('cglib:cglib-nodep:3.2.4')
+    testCompile('com.github.spock.spring.utils:spock-spring-utils:0.0.2')
+    testCompile('cglib:cglib-nodep:3.2.5')
     testCompile("org.spockframework:spock-spring:${spockSpringVersion}")
     testCompile("org.springframework.boot:spring-boot-starter-test:${springBootVersion}")
 }
@@ -46,5 +52,5 @@ jacocoTestReport {
 }
 
 if (project.hasProperty('bintrayUser') && project.hasProperty('bintrayKey')) {
-    apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.3/bintray.gradle'
+    apply from: 'https://raw.githubusercontent.com/FINTlibs/fint-buildscripts/v1.0.7/bintray.gradle'
 }

@@ -1,7 +1,6 @@
 package no.fint.dependencies;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -11,7 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(exclude = {"version"})
-public class FintDependency {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Dependency {
     private String group;
     private String name;
     private String version;

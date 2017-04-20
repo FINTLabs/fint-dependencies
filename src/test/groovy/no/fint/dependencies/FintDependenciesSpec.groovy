@@ -9,15 +9,31 @@ class FintDependenciesSpec extends Specification {
         fintDependencies = new FintDependencies()
     }
 
+    def "Get all dependencies"() {
+        when:
+        def dependencies = fintDependencies.getAll()
+
+        then:
+        dependencies.size() == 17
+    }
+
     def "Get all FINT dependencies"() {
         when:
-        def dependencies = fintDependencies.get()
+        def dependencies = fintDependencies.getFintDependencies()
+
+        then:
+        dependencies.size() == 7
+        dependencies.each {
+            assert it.name.startsWith('fint-')
+        }
+    }
+
+    def "Get all outdated dependencies"() {
+        when:
+        def dependencies = fintDependencies.getOutdated()
 
         then:
         dependencies.size() == 4
-        dependencies[0].name == 'fint-event-model'
-        dependencies[1].name == 'fint-administrasjon-model-java'
-        dependencies[2].name == 'fint-relation-model'
-        dependencies[3].name == 'fint-felles-model-java'
     }
+
 }
