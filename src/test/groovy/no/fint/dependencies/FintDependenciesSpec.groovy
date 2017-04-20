@@ -6,7 +6,11 @@ class FintDependenciesSpec extends Specification {
     private FintDependencies fintDependencies
 
     void setup() {
-        fintDependencies = new FintDependencies()
+        fintDependencies = new FintDependencies(
+                reportFile: 'report.json',
+                jsonPathCurrent: '$.current.dependencies',
+                jsonPathOutdated: '$.outdated.dependencies')
+        fintDependencies.init()
     }
 
     def "Get all dependencies"() {
@@ -34,6 +38,18 @@ class FintDependenciesSpec extends Specification {
 
         then:
         dependencies.size() == 4
+    }
+
+    def "Return empty list when report file is not found"() {
+        given:
+        def fintDeps = new FintDependencies(reportFile: 'unknown-file')
+
+        when:
+        fintDeps.init()
+        def dependencies = fintDeps.getAll()
+
+        then:
+        dependencies.size() == 0
     }
 
 }

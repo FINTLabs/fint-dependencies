@@ -11,7 +11,9 @@ import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import com.jayway.jsonpath.spi.mapper.MappingProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.springframework.beans.factory.annotation.Value;
 
+import javax.annotation.PostConstruct;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -21,6 +23,15 @@ import java.util.stream.Collectors;
 
 @Slf4j
 public class FintDependencies {
+    @Value("${fint.dependencies.report-file:report.json}")
+    private String reportFile;
+
+    @Value("${fint.dependencies.json-path-current:$.current.dependencies}")
+    private String jsonPathCurrent;
+
+    @Value("${fint.dependencies.json-path.outdated:$.outdated.dependencies}")
+    private String jsonPathOutdated;
+
     private List<Dependency> current = new ArrayList<>();
     private List<Dependency> outdated = new ArrayList<>();
 
@@ -44,12 +55,15 @@ public class FintDependencies {
                 return mappingProvider;
             }
         });
+    }
 
+    @PostConstruct
+    public void init() {
         try {
-            URL resource = Resources.getResource(FintDependencies.class, "/report.json");
+            URL resource = Resources.getResource(FintDependencies.class, String.format("/%s", reportFile));
             String json = FileUtils.readFileToString(new File(resource.toURI()), Charsets.UTF_8);
-            current = load(json, "$.current.dependencies");
-            outdated = load(json, "$.outdated.dependencies");
+            current = load(json, jsonPathCurrent);
+            outdated = load(json, jsonPathOutdated);
         } catch (IllegalArgumentException | IOException | URISyntaxException e) {
             log.info("Unable to read report.json file, {}", e.getMessage());
         }
